@@ -26,7 +26,13 @@ import { CartContext } from '../Context/CartContext'
 
 export default function Navbar() {
   const { data: session, status } = useSession();
-  const {numOfCartItem} = useContext(CartContext);
+  // const {numOfCartItem} = useContext(CartContext);
+    const cartCtx = useContext(CartContext);
+  if (!cartCtx) {
+    throw new Error("CartContext must be used within CartContextProvider");
+  }
+  const { numOfCartItem } = cartCtx;
+  
  const [openMenu, setOpenMenu] = useState(false);
 
   function logOut() {

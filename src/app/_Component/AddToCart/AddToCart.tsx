@@ -8,7 +8,14 @@ import toast from 'react-hot-toast'
 import { CartContext } from '../Context/CartContext'
 
 export default function AddToCart({id}:{id:string}) {
-  const {numOfCartItem, setNumOfCartItem } = useContext(CartContext);
+  // const {numOfCartItem, setNumOfCartItem } = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
+if (!cartCtx) {
+  throw new Error("CartContext must be used within CartContextProvider");
+}
+
+const { numOfCartItem, setNumOfCartItem } = cartCtx;
+
  async function addProduct(id:string){
     const res = await addToCartApi(id);
 

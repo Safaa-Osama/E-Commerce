@@ -22,7 +22,7 @@ export async function getProductsByCategoryAPi(categoryId: string)
     const response =
         await fetch(`https://ecommerce.routemisr.com/api/v1/products?category[in]=${categoryId}`);
     const products = await response.json();
-    return products;
+    return products.data;
 }
 
 export async function getProductsBybrandsAPi(brandId: string)
@@ -31,7 +31,7 @@ export async function getProductsBybrandsAPi(brandId: string)
     const response =
         await fetch(`https://ecommerce.routemisr.com/api/v1/products?brand=${brandId}`);
     const products = await response.json();
-    return products;
+    return products.data;
 }
 
 export async function getProductsByPriceAPi(price: number)
@@ -40,5 +40,5 @@ export async function getProductsByPriceAPi(price: number)
     const response =
         await fetch(`https://ecommerce.routemisr.com/api/v1/products?price[gte]=${price}`);
     const products = await response.json();
-    return products;
+    return products.data;
 }

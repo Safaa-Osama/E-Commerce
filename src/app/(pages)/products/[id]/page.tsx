@@ -30,6 +30,8 @@ export default async function ProductDetailsPage({ params }: ProductDetailsProps
 
   const relatedproducts = await getProductsByCategoryAPi(productDetails?.category._id)
 
+  console.info('ERROR YA KAREEM:', relatedproducts);
+
   return <>
     <section className="container mx-auto p-6 my-10">
       <Card className="grid md:grid-cols-3 gap-6">
@@ -66,8 +68,8 @@ export default async function ProductDetailsPage({ params }: ProductDetailsProps
     </section>
 
     <section className='container my-10 mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-      {relatedproducts?.data?.length &&
-        relatedproducts?.data.map((product) => (
+      {relatedproducts?.length &&
+        relatedproducts.map((product) => (
           <Card key={product._id} className=" flex flex-col -px-2">
             {/* <Link href={`/products/${product._id}`}> */}
             <Image

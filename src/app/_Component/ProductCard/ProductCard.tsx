@@ -51,7 +51,7 @@ export default function ProductCard({ title, slug, id, imageCover, ratingsAverag
                 <div className='flex-1'>
                     <AddToCart id={id} />
                 </div>
-                <Remove/>
+                <Remove id={id} />
             </CardFooter>
         </Card>
     </>
